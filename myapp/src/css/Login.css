@@ -1,0 +1,227 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+.login-container{
+    width: 100%;
+
+}
+.login-container .login-content{
+    width: 100%;
+    display: flex;
+    height: 100vh;
+}
+.login-content .login_img{
+    width: 35%;
+    height: 100vh;
+    padding: 50px 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.login_img a img{
+    width: 120px;
+    height: 70px;
+
+}
+.login-content .login_base{
+    width: 50%;
+    display: block;
+}
+.login_base .login_form{
+    width: 60%;
+    margin-top: 250px;
+    margin-left: auto;
+}
+.login_form h1{
+    font-size: 35px;
+    margin-bottom: 50px;
+}
+.login_form form{
+    width: 100%;
+}
+.login_form .input_form_login{
+    display: block;
+}
+.input_form_login label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #95979c;
+}
+.input_form_login input{
+    padding: 14px 20px;
+    font-size: 16px;
+    border-radius: 7px;
+    width: 80%;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+.login_form button{
+    width: 80%;
+    display: block;
+    margin-top: 20px;
+    background-color: #40b659;
+    transition: .4s;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    padding: 15px 0;
+    border-radius: 6px;
+}
+.login_form button:hover{
+    background-color: white;
+    color: #40b659;
+    border: 1px solid #40b659;
+}
+
+
+
+.login_base .otp_form{
+    width: 60%;
+    margin-top: 250px;
+    margin-left: auto;
+}
+.otp_form h1{
+    font-size: 35px;
+    margin-bottom: 50px;
+}
+.otp_form form{
+    width: 100%;
+}
+.otp_form .input_form_login{
+    display: block;
+}
+.input_form_login label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #95979c;
+}
+.input_form_login input{
+    padding: 14px 20px;
+    font-size: 16px;
+    border-radius: 7px;
+    width: 80%;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+.otp_form button{
+    width: 80%;
+    display: block;
+    margin-top: 20px;
+    background-color: #40b659;
+    transition: .4s;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    padding: 15px 0;
+    border-radius: 6px;
+}
+.otp_form button:hover{
+    background-color: white;
+    color: #40b659;
+    border: 1px solid #40b659;
+}
+
+@media screen  and (max-width:600px){
+    .login-content{
+        width: 100%;
+    }
+    .login-content .login_img{
+        display: none;
+    }
+    .login-content .login_base{
+        width: 100%;
+    }
+    .login_base .otp_form{
+        width: 100%;
+        margin-top: 100px;
+        margin-left: 30px;
+    }
+    .login_base .login_form{
+        width: 100%;
+        margin-top: 100px;
+        margin-left: 30px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+    .login-content{
+        width: 100%;
+    }
+    .login-content .login_img{
+        display: none;
+    }
+    .login-content .login_base{
+        width: 100%;
+    }
+    .login_base .otp_form{
+        width: 100%;
+        margin-top: 100px;
+        margin-left: 30px;
+    }
+    .login_base .login_form{
+        width: 100%;
+        margin-top: 100px;
+        margin-left: 30px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .login-content{
+        width: 100%;
+        display: flex;
+    }
+    .login-content .login_img {
+        width: 40%;
+    }
+    .login-content .login_base{
+        width: 60%;
+    }
+    .login_base .login_form{
+        width: 100%;
+        margin-top: 300px;
+    }
+    .login_form .input_form_login{
+        width: 80%;
+        margin: 0px auto;
+    }
+    .input_form_login input{
+        width: 100%;
+    }
+    .login_form h1{
+        margin-left: 50px;
+    }
+    .login_form .button_form{
+        width: 100%;
+        margin-left: 50px;
+    }
+
+    .login_base .otp_form{
+        width: 100%;
+        margin-top: 300px;
+    }
+    .otp_form .input_form_login{
+        width: 80%;
+        margin: 0px auto;
+    }
+    .input_form_login input{
+        width: 100%;
+    }
+    .otp_form h1{
+        margin-left: 50px;
+    }
+    .otp_form .button_form{
+        width: 100%;
+        margin-left: 50px;
+    }
+}

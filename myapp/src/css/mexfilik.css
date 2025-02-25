@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+
+}
+.container_fluid{
+    width: 100%;
+}
+.container_fluid .content{
+    width: 90%;
+    margin: 40px auto;
+}
+.content .content_up{
+    width: 100%;
+}
+.title_content{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.content_up h1{
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 2.2;
+    margin: 20px auto;
+}
+.content_up .sector_content{
+    width: 100%;
+    display: block;
+    margin-bottom: 30px;
+}
+.sector_content h3{
+    font-size: 22px;
+    font-weight: bold;
+    color: #232d40;
+}
+.sector_content p{
+    font-size: 18px;
+    line-height: 1.7;
+    color: #212529;
+    margin-top: 20px;
+}
+
+@media screen  and (max-width:600px){
+    .container_fluid{
+        width: 100%;
+    }
+    .container_fluid .content{
+        width: 96%;
+        margin: 0px auto;
+    }
+    .title_content{
+        text-align: left;
+    }
+    .title_content h1{
+        font-size: 20px;
+    }
+    .sector_content h3{
+        font-size: 19px;
+    }
+    .sector_content p{
+        font-size: 14px;
+    }
+    
+}
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .container_fluid{
+        width: 100%;
+    }
+    .container_fluid .content{
+        width: 96%;
+        margin: 0px auto;
+    }
+    .title_content{
+        text-align: left;
+    }
+    .title_content h1{
+        font-size: 20px;
+    }
+    .sector_content h3{
+        font-size: 19px;
+    }
+    .sector_content p{
+        font-size: 14px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .container_fluid{
+        width: 100%;
+    }
+    .container_fluid .content{
+        width: 96%;
+        margin: 0px auto;
+    }
+    .title_content{
+        text-align: center;
+    }
+    .title_content h1{
+        font-size: 20px;
+    }
+    .sector_content h3{
+        font-size: 19px;
+    }
+    .sector_content p{
+        font-size: 14px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .container_fluid{
+        width: 100%;
+    }
+    .container_fluid .content{
+        width: 95%;
+        margin: 0px auto;
+    }
+    .title_content{
+        text-align: center;
+    }
+    .title_content h1{
+        font-size: 20px;
+    }
+    .sector_content h3{
+        font-size: 19px;
+    }
+    .sector_content p{
+        font-size: 14px;
+    }
+}

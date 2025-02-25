@@ -1,0 +1,540 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+.korporativ-inner{
+    width: 100%;
+}
+.korporativ-inner .container-fluid{
+    width: 90%;
+    margin: 30px auto;
+    display: block;
+}
+.container-fluid .container_up{
+    text-align: center;
+}
+.container-fluid h1{
+    font-size: 34px;
+    color: #232d40;
+    margin: 40px auto;
+}
+.container-fluid .korporativ_inner_desc{
+    display: block;
+}
+.korporativ_inner_desc .blog-inner__text p{
+    font-size: 24px;
+    color: #232d40;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+.korporativ_inner_desc .blog_inner_add{
+    display: flex;
+    width: 100%;
+    margin-bottom:-50px
+}
+.blog_inner_add .blog_inner_left{
+    width: 75%;
+    display: block;
+}
+.blog_inner_left h4{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.blog_inner_left ul{
+    list-style: none;
+}
+.blog_inner_left ul li{
+    margin-bottom: 10px;
+    width: 100%;
+}
+.blog_inner_left ul li strong{
+    margin-right: 5px;
+}
+.blog_inner_add .blog_inner_img{
+    width: 25%;
+}
+.blog_inner_img img{
+   width: 300px;
+   height: 300px;
+}
+.korporativ_inner_desc .blog_inner_suggest{
+    width: 100%;
+    display: block;
+}
+.blog_inner_suggest h4{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.blog_inner_suggest ul{
+    list-style: none;
+}
+
+.blog_inner_suggest ul li{
+    margin-bottom: 10px;
+    width: 100%;
+}
+.blog_inner_suggest ul li strong{
+    margin-right: 5px;
+}
+.korporativ_inner_desc .blog_inner_contact{
+    width: 100%;
+    margin-top: 30px;
+}
+.blog_inner_contact h4{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.blog_inner_contact ul {
+    list-style-type: none;
+}
+.blog_inner_contact ul li{
+    margin-bottom: 15px;
+}
+.blog_inner_contact a{
+    text-decoration: none;
+    font-size: 18px;
+}
+.blog_inner_contact strong{
+    margin-right: 5px;
+}
+.korporativ-inner .checkout__form{
+    width: 90%;
+    margin: 40px auto;
+    border: 1px solid #dbdbdb;
+    padding: 60px 60px;
+    border-radius: 11px;
+}
+.checkout__form .checkup{
+    text-align: center;
+}
+.checkup h1{
+    font-size: 26px;
+    color: #232d40;
+    margin-bottom: 30px;
+}
+.checkout__form .input_form{
+    display: flex;
+    width: 100%;
+}
+.input_form .form_group{
+    width: 100%;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+.form_group input{
+    width: 100%;
+    margin-right: 15px;
+    padding: 14px 24px;
+    outline: none;
+
+    border-radius: 6px;
+    border: 1px solid #dbdbdb;
+    font-size: 16px;
+}
+.form_group label{
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+    color: #95979c;
+}
+.input_form textarea{
+    width: 100%;
+    height: 120px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    outline: none;
+}
+.checkout__form .input_form_button {
+    text-align: right;
+}
+.input_form_button button{
+    padding: 12px 50px;
+    border: none;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 17px;
+    width: auto;
+    border-radius: 6px;
+    margin-right: 15px;
+    cursor: pointer;
+    background-color: #40b659;
+    color: white;
+    transition: .4s;
+}
+.input_form_button button:hover{
+    border: 1px solid #40b659;
+    color: #40b659;
+    background-color: white;
+}
+.input_form .form_group select{
+    width: 100%;
+    padding: 14px 24px;
+    border: 1px solid #dbdbdb;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+
+@media screen  and (max-width:600px){
+    .korporativ-inner{
+        width: 100%;
+    }
+    .korporativ-inner .container-fluid {
+        width: 96%;
+        margin: 0px auto;
+    }
+    .container-fluid .container_up {
+        text-align: left;
+    }
+    .container-fluid .container_up h1{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .container-fluid .korporativ_inner_desc .blog-inner__text p{
+        font-size: 19px;
+    }
+    .blog_inner_add{
+        display: flex;
+        width: 100%;
+    }
+    .blog_inner_add .blog_inner_left{
+        width: 40%;
+    }
+    .blog_inner_left h4{
+        font-size: 15px;
+    }
+    .blog_inner_left ul li p{
+        font-size: 15px;
+    }
+    .korporativ-inner .blog_inner_suggest {
+        width: 100%;
+        margin-top: 60px;
+    }
+    .blog_inner_suggest h4{
+        font-size: 16px;
+    }
+    .blog_inner_suggest ul li{
+        font-size: 14px;
+    }
+    .korporativ-inner .blog_inner_contact h4{
+        font-size: 16px;
+    }
+    .blog_inner_contact ul li a{
+        font-size: 14px;
+    }
+    .korporativ-inner .checkout__form{
+        width: 96%;
+        margin: 30px auto;
+        display: block;
+        padding: 20px 15px;
+        border: none;
+    }
+    .checkout__form .checkup{
+        width: 100%;
+        text-align: left;
+    }
+    .checkout__form .input_form {
+        width: 100%;
+        display: block;
+    }
+    .input_form .form_group {
+        width: 100%;
+    }
+    .input_form_button button{
+        width: 100%;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .korporativ-inner{
+        width: 100%;
+    }
+    .korporativ-inner .container-fluid {
+        width: 96%;
+        margin: 0px auto;
+    }
+    .container-fluid .container_up {
+        text-align: left;
+    }
+    .container-fluid .container_up h1{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .container-fluid .korporativ_inner_desc .blog-inner__text p{
+        font-size: 19px;
+    }
+    .blog_inner_add{
+        display: flex;
+        width: 100%;
+    }
+    .blog_inner_add .blog_inner_left{
+        width: 40%;
+    }
+    .blog_inner_left h4{
+        font-size: 15px;
+    }
+    .blog_inner_left ul li p{
+        font-size: 15px;
+    }
+    .korporativ-inner .blog_inner_suggest {
+        width: 100%;
+        margin-top: 60px;
+    }
+    .blog_inner_suggest h4{
+        font-size: 16px;
+    }
+    .blog_inner_suggest ul li{
+        font-size: 14px;
+    }
+    .korporativ-inner .blog_inner_contact h4{
+        font-size: 16px;
+    }
+    .blog_inner_contact ul li a{
+        font-size: 14px;
+    }
+    .korporativ-inner .checkout__form{
+        width: 100%;
+        margin: 30px auto;
+        display: block;
+        padding: 20px 15px;
+        border: none;
+    }
+    .checkout__form .checkup{
+        width: 100%;
+        text-align: left;
+    }
+    .checkup h1{
+        font-size: 19px;
+    }
+    .checkout__form .input_form {
+        width: 100%;
+        display: block;
+    }
+    .input_form .form_group {
+        width: 100%;
+    }
+    .input_form_button button{
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .korporativ-inner{
+        width: 100%;
+    }
+    .korporativ-inner .container-fluid {
+        width: 96%;
+        margin: 0px auto;
+    }
+    .container-fluid .container_up {
+        text-align: center;
+    }
+    .container-fluid .container_up h1{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .container-fluid .korporativ_inner_desc .blog-inner__text p{
+        font-size: 19px;
+    }
+    .blog_inner_add{
+        display: flex;
+        width: 100%;
+    }
+    .container-fluid .korporativ_inner_desc .blog-inner__text p{
+        font-size: 15px;
+    }
+
+
+
+    .blog_inner_add{
+        display: flex;
+        width: 100%;
+    }
+    .blog_inner_add .blog_inner_left{
+        width: 60%;
+    }
+    .blog_inner_left h4{
+        font-size: 15px;
+    }
+    .blog_inner_left ul li p{
+        font-size: 15px;
+    }
+    .korporativ-inner .blog_inner_suggest {
+        width: 100%;
+        margin-top: 60px;
+    }
+    .blog_inner_suggest h4{
+        font-size: 16px;
+    }
+    .blog_inner_suggest ul li{
+        font-size: 14px;
+    }
+    .korporativ-inner .blog_inner_contact h4{
+        font-size: 16px;
+    }
+    .blog_inner_contact ul li a{
+        font-size: 14px;
+    }
+    .korporativ-inner .checkout__form{
+        width: 96%;
+        margin: 30px auto;
+        display: block;
+        padding: 20px 15px;
+    }
+    .checkout__form .checkup{
+        width: 100%;
+        text-align: center;
+        
+    }
+    .checkup h1{
+        font-size: 18px;
+        margin-top: 40px;
+    }
+    .checkout__form .input_form {
+        width: 100%;
+        display: flex;
+    }
+    .input_form .form_group {
+        width: 100%;
+    }
+    .input_form_button button{
+        padding: 12px 20px;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .korporativ-inner{
+        width: 100%;
+    }
+    .korporativ-inner .container-fluid {
+        width: 96%;
+        margin: 0px auto;
+    }
+    .container-fluid .container_up {
+        text-align: center;
+    }
+    .container-fluid .container_up h1{
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .container-fluid .korporativ_inner_desc .blog-inner__text p{
+        font-size: 20px;
+    }
+    .blog_inner_add{
+        display: flex;
+        width: 100%;
+    }
+    .container-fluid .korporativ_inner_desc .blog-inner__text p{
+        font-size: 18px;
+    }
+
+
+
+    .blog_inner_add{
+        display: flex;
+        width: 100%;
+    }
+    .blog_inner_add .blog_inner_left{
+        width: 70%;
+    }
+    .blog_inner_left h4{
+        font-size: 15px;
+    }
+    .blog_inner_left ul li p{
+        font-size: 15px;
+    }
+    .korporativ-inner .blog_inner_suggest {
+        width: 100%;
+        margin-top: 60px;
+    }
+    .blog_inner_suggest h4{
+        font-size: 16px;
+    }
+    .blog_inner_suggest ul li{
+        font-size: 14px;
+    }
+    .korporativ-inner .blog_inner_contact h4{
+        font-size: 16px;
+    }
+    .blog_inner_contact ul li a{
+        font-size: 14px;
+    }
+    .korporativ-inner .checkout__form{
+        width: 96%;
+        margin: 30px auto;
+        display: block;
+        padding: 20px 15px;
+    }
+    .checkout__form .checkup{
+        width: 100%;
+        text-align: center;
+        
+    }
+    .checkup h1{
+        font-size: 18px;
+        margin-top: 40px;
+    }
+    .checkout__form .input_form {
+        width: 100%;
+        display: flex;
+    }
+    .input_form .form_group {
+        width: 100%;
+    }
+    .input_form_button button{
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+ }
+ .success_modal{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+ }
+ .success_message{
+    width: 50%;
+    margin: 300px auto;
+    display: flex;
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+
+ }
+ .success_message .success_text{
+    display: flex;
+    height: 50px;
+    width: 70%;
+    align-items: center;
+ }
+ .success_text i{
+    color: #40b659;
+    font-size: 50px;
+    margin-right: 20px;
+}
+.success_text span{
+    font-size: 20px;
+}
+.success_message .close_modal{
+    width: 30%;
+    text-align: right;
+}
+.close_modal button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: white;
+}

@@ -1,0 +1,298 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+
+}
+.career{
+    width: 100%;
+}
+.career .container-fluid{
+    width: 90%;
+    margin: 30px auto;
+    display: block;
+}
+.container-fluid h1{
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 4.8rem;
+    color: #232d40;
+    margin-bottom: 3.6rem;
+}
+.container-fluid form{
+    width: 100%;
+    margin-top: -20px;
+}
+.container-fluid .checkout__form{
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 60px 60px;
+}
+.checkout__form .inputForm{
+    display: flex;
+    width: 100%;
+}
+.inputForm .form{
+    width: 100%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.inputForm input{
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 17px 15px;
+    font-size: 14px;
+
+    display: block;
+    outline: none;
+    margin-right: 20px;
+}
+.inputForm label{
+    color: #95979c;
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: block;
+}
+.inputForm textarea{
+    width: 100%;
+    height: 80px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 17px 15px;
+    outline: none;
+
+}
+.checkout__form .checkout__form__button{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    width: 100%;
+}
+.checkout__form__button button{
+    padding: 12px 50px;
+    transition: .4s;
+    cursor: pointer;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #40b659;
+    border-radius: 7px;
+    text-align: right;
+    border: none;
+}
+.checkout__form__button button:hover{
+    border: 1px solid #40b659;
+    background-color: white;
+    color: #40b659;
+}
+@media screen  and (max-width:600px){
+    .career{
+        width: 100%;
+    }
+   .career .container-fluid {
+        width: 100%;
+    }
+    .container-fluid .checkout__form{
+        width: 100%;
+        border: none;
+        margin-top: -110px;
+    }
+    .container-fluid h1{
+        font-size: 20px;
+        margin-left: 20px;
+    }
+    .checkout__form .inputForm{
+        width: 120%;
+        margin-left: -40px;
+        display: block;
+    }
+    .checkout__form .form{
+        width: 100%;
+        display: block;
+    }
+    .form input{
+        width: 100%;
+        padding: 18px 20px;
+    }
+    .checkout__form__button{
+
+        display: block;
+        margin-left: -40px;
+        width: 125%!important;
+    }
+    .checkout__form__button button{
+        width: 110%;
+        text-align: center;
+        margin-right: 0px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+    .career{
+        width: 100%;
+    }
+   .career .container-fluid {
+        width: 100%;
+    }
+    .container-fluid .checkout__form{
+        width: 100%;
+        border: none;
+        margin-top: -110px;
+    }
+    .container-fluid h1{
+        font-size: 20px;
+        margin-left: 60px;
+    }
+    .checkout__form .inputForm{
+        width: 100%;
+        display: block;
+    }
+    .checkout__form .form{
+        width: 100%;
+        display: block;
+    }
+    .form input{
+        width: 100%;
+        padding: 18px 20px;
+    }
+    .checkout__form__button{
+        width: 100%;
+    }
+    .checkout__form__button button{
+        width: 100%;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .career{
+        width: 100%;
+    }
+   .career .container-fluid {
+        width: 100%;
+    }
+    .container-fluid .checkout__form{
+        width: 100%;
+        border: none;
+        margin-top: -110px;
+    }
+    .container-fluid h1{
+        font-size: 20px;
+        margin-left: 60px;
+    }
+    .checkout__form .inputForm{
+        width: 100%;
+        display: flex;
+        
+    }
+    .checkout__form .form{
+        width: 100%;
+        display: block;
+    }
+    .form input{
+        width: 100%;
+        padding: 18px 20px;
+    }
+    .checkout__form__button{
+        width: 100%;
+    }
+    .checkout__form__button button{
+        width: 100%;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .career{
+        width: 100%;
+    }
+   .career .container-fluid {
+        width: 100%;
+    }
+    .container-fluid .checkout__form{
+        width: 100%;
+        border: none;
+        margin-top: -110px;
+    }
+    .container-fluid h1{
+        font-size: 20px;
+        margin-left: 60px;
+    }
+    .checkout__form .inputForm{
+        width: 100%;
+        display: flex;
+        
+    }
+    .checkout__form .form{
+        width: 100%;
+        display: block;
+    }
+    .form input{
+        width: 100%;
+        padding: 18px 20px;
+    }
+    .checkout__form__button{
+        width: 100%;
+    }
+    .checkout__form__button button{
+        width: 100%;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+}
+
+
+.modal_content{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(0,0,0,0.4);
+}
+.isActive{
+    display: block;
+}
+.model_text{
+    background-color: white;
+    border-radius: 20px;
+    width: 800px;
+    height: 130px;
+    display: flex;
+    align-items: center ;
+    padding: 0px 60px;
+    font-weight: bold;
+    justify-content: space-between;
+    font-size: 24px;
+    margin: 200px auto;
+}
+.model_text button{
+    background-color: transparent;
+    border: 1px solid #dbdbdb;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 50px;
+    height:50px;
+    cursor: pointer;
+}
+.model_text i{
+    color: green;
+    font-size: 30px;
+    border: 2px solid green;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 10px 10px;
+    
+    margin-right: 10px;
+}

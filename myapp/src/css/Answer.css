@@ -1,0 +1,92 @@
+.accordion .up{
+    width: 100%;
+    display: flex;
+    margin-left: 40px;
+}
+.up button{
+    background-color: #f8f9fb;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #5b5f66;
+    height: 60px;
+    padding: 0px 30px;
+    border: none;
+    transition: .4s;
+    margin-right: 15px;
+}
+.up button:hover{
+    background-color: #f6861f;
+    color: white;
+}
+.accordion .down{
+    margin-top: 40px;
+}
+.accordion .down{
+    display: block;
+    margin-left: 40px;
+}
+.down .accordion_item{
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+
+    cursor: pointer;
+}
+.accordion_item .accordion_header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion_header h4{
+    font-size: 23px;
+    font-weight: bold;
+}
+.accordion_item .accordion_body p{
+    width: 100%;
+    font-size: 19px;
+    color: #5b5f66;
+    line-height: 2.8rem;
+    margin-top: 30px;
+}
+
+.accordion_body {
+    overflow: hidden; /* Məzmunun kənara çıxmaması üçün gizlə */
+    max-height: 0; /* Başlanğıcda gizli */
+    transition: max-height 0.5s ease; /* Animasiya */
+  }
+  
+  .accordion_body.open {
+    transition: max-height 0.5s ease; /* Açılınca */
+  }
+  
+.open {
+    max-height: 500px!important; /* Məzmunun maksimum hündürlüyü */
+    opacity: 1!important;
+
+}
+.load_more{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.load_more button{
+    padding: 20px 40px;
+    font-size: 20px;
+    border: 1px solid #5b5f66;
+    color: #5b5f66;
+    background-color: white;
+    transition: .4s;
+}
+.load_more button:hover{
+    background-color: #5b5f66;
+    color: white;
+}
+
+.rotated {
+    transform: rotate(180deg); /* İkonu döndürmə */
+    transition: transform 0.3s ease; /* İkonun döndürülmə animasiyası */
+  }

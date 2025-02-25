@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    width: 100%;
+}
+.container .content{
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    padding: 50px 40px;
+}
+.container h3{
+    font-size: 26px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.content form{
+    width: 100%;
+    display: block;
+}
+.content form .input_form{
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.input_form div {
+    width: 100%;
+    margin-left: 20px;
+
+}
+.input_form input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+    font-size: 15px;
+    border-radius: 4px;
+}
+.input_form div label {
+    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 12px;
+    color: grey;
+}
+form .input_radio{
+    width: 100%;
+    display: flex;
+}
+.input_radio .radio_check{
+    width: 50%;
+    margin-left: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.radio_check p{
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: grey;
+}
+.radio_check label{
+    margin-left: 5px;
+    margin-right: 150px;
+    font-size: 14px;
+}
+.input_foreach{
+    width: 100%;
+    margin-top: 40px;
+}
+.input_foreach .div h3{
+    margin: 40px 20px;
+}
+.input_foreach .header{
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+.header span{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 20px;
+}
+.header button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: green;
+    font-size: 17px;
+    font-weight: bold;
+}
+.header button i{
+    margin-right: 10px;
+}
+.input_foreach .input_text{
+    width: 100%;
+    display: flex;
+}
+
+.input_foreach .input_date{
+
+}
+.input_text input{
+    padding: 15px 20px;
+     border: 1px solid #dbdbdb;
+     border-radius: 5px;
+     outline: none;
+     font-size: 16px;
+}
+.input_text .input_name{
+    width: 50%;
+
+}
+.input_name label{
+    font-size: 13px;
+    display: block;
+    color: grey;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.input_name input{
+    width: 98%;
+    margin-left: 20px;
+    
+}
+
+.input_text .input_date{
+    width: 50%;
+    display: flex;
+    padding-left: 20px;
+}
+.input_date .select{
+    width: 100%;
+    margin-right: 10px;
+    
+}
+.select label{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: grey;
+}
+.select select{
+    width: 100%;
+    padding: 14px 0px;
+    outline: none;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+}
+.input_foreach .language{
+    margin-left: 20px;
+    display: block;
+}
+.language p{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.language .radio{
+    width: 100%;
+    display: flex;
+}
+.radio div{
+    width: 20%;
+}
+.input_foreach .checkbox{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox label{
+    font-size: 15px;
+}
+.input_foreach .magaza{
+    width: 40%;
+    padding: 14px 20px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    margin-left: 20px;
+    outline: none;
+}
+.content .button{
+    width: 100%;
+    text-align: right;
+    margin-top: 30px;
+}
+.button button{
+    width: 150px;
+    padding: 14px 0px;
+    background-color: #40B659;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: .4s;
+}
+.button button:hover{
+    background-color: white;
+    color: #40B659;
+    border: 1px solid #40B659;
+}
+.modal_success{
+    width: 50%;
+    position: fixed;
+    top: 35%;
+    height: 170px;
+    margin-left: 15%;
+    background-color: green;
+    border: 1px solid #dbdbdb;
+    padding: 20px 40px;
+    z-index: 1;
+    color: white;
+    
+    border-radius: 30px;
+}
+.modal_success button{
+    
+    right: 20px;
+}
+.modal_success .text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+.modal_success i{
+    color: white;
+    font-size: 30px;
+    margin-right: 20px;
+}
+.modal_success .btn_modal{
+    width: 100%;
+    text-align: right;
+}
+.btn_modal span{
+    display: inline ;
+    background-color: transparent;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

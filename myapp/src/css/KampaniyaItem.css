@@ -1,0 +1,835 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+.container_inner{
+    width: 100%;
+}
+.container_inner .container-fluid{
+    width: 90%;
+    margin: 80px auto;
+    display: flex;
+}
+.container-fluid .campaign_left{
+    width: 100%;
+}
+.campaign_left img{
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+}
+.container-fluid .campaign_right{
+    width: 100%;
+    border-radius: 20px;
+    margin-left: 30px;
+    display: block;
+    /* animation: animation  2s infinite; */
+
+    padding: 40px 30px;
+    border: 1px solid #f6861f;
+    position: relative;
+}
+
+.campaign_right .campaigns-inner__date{
+    position: absolute;
+    top: -25px;
+    right: 20px;
+    /* animation: animation  2s infinite; */
+    font-weight: 600;
+    border: 1px solid #f6861f;
+    border-radius: 10px;
+    color: #f6861f;
+    padding: 12px 20px;
+    background-color: white;
+}
+/* @keyframes animation{
+    from {border: 1px solid #f6861f;}
+    to {border: 1px solid #198754;}
+} */
+.campaign_right .campaig_body{
+    width: 100%;
+    display: block;
+}
+.campaig_body .date{
+    font-size: 15px;
+    color: #5b5f66;
+    margin-bottom: 15px;
+}
+.campaig_body .campaigns-inner__title{
+    width: 100%;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #232d40;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+.campaig_body .campaigns-inner__desc{
+    color: #95979c;
+    font-size: 17px;
+}
+.campaig_body .social_info{
+    display: flex;
+    width: 100%;
+}
+.social_info .campaigns-inner__info__text{
+    width: 100%;
+    border-right: 1px solid #dbdbdb;
+    margin-top: 40px;
+    padding: 0px 30px 0px 0px;
+    text-align: center;
+}
+.campaigns-inner__info__text span{
+    font-size: 13px;
+    color: #5b5f66;
+    display: block;
+
+}
+.campaigns-inner__info__text img{
+    width: 80px;
+    display: block;
+    margin-top: 10px;
+}
+.campaigns-inner__info__text a{
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 10px;
+    color: black;
+}
+.campaigns-inner__info__text i{
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.ProductList{
+    width: 100%;
+
+}
+.ProductList .product_content{
+    width: 75%;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.product_content .product{
+    width: 25%;
+    border: 1px solid #dbdbdb;
+    transition: .4s;
+}
+.product:hover{
+    box-shadow: 0 15px 80px rgba(0, 0, 0, .07), 0 1.87823px 10.0172px rgba(0, 0, 0, .35);
+}
+.product .product_image{
+    position: relative;
+    width: 100%;
+    height: 250px;
+
+}
+.product_image img{
+    width: 80%;
+    margin: 20px 10% 20px 10%;
+    height: 250px;
+}
+.product_image .product_icon{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    
+}
+.product_icon a{
+    text-decoration: none;
+    color: #c2c5ca;
+    transition: .4s;
+    margin-right: 10px;
+}
+.product_icon .scale:hover{
+    color: #f6861f;
+}
+.product_icon i{
+    font-size: 20px;
+}
+.product_icon .heart:hover{
+    color: red;
+}
+.product .product_body{
+    display: block;
+    width: 100%;
+    padding: 30px 20px;
+}
+.product_body .product_category{
+    color: #95979c;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.product_body .product_name{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.product_name a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #232d40;
+    font-weight: 600;
+}
+.product .product_color{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.product_color ul{
+    list-style: none;
+    display: flex;
+}
+.product_color ul li{
+    margin-right: 10px;
+}
+.product .product_comment{
+    position: relative;
+    width: 100%;
+    display: block;
+}
+.product_comment .product_stars{
+    display: flex;
+}
+.product_stars i{
+    font-size: 16px;
+    margin-right: 5px;
+    color: #c2c5ca;
+    cursor: pointer;
+}
+.product_stars .fa-message{
+    margin-left: 10px;
+    color: black!important;
+    cursor: pointer;
+}
+.product_comment .comment_box{
+    width: 500px;
+    background-color: white;
+    left: -80px;
+    display: none;
+    top: 25px;
+    z-index: 99;
+    filter: drop-shadow(0 15px 80px rgba(0, 0, 0, .07)) drop-shadow(0 1.87823px 10.0172px rgba(0, 0, 0, .035));
+    border-radius: 15px;
+    position: absolute;
+    height: auto;
+    padding: 30px 25px;
+}
+.comment_box .comment_up{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.comment_up span{
+    font-size: 19px;
+    font-weight: 600;
+
+}
+.comment_up button{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #95979c;
+    cursor: pointer;
+}
+.comment_box .comment_body{
+    width: 100%;
+    display: block;
+}
+.comment_body .comment_price{
+    padding: 15px 10px;
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+.comment_price .price_left{
+    font-size: 16px;
+    color: #232d40;
+}
+.comment_price i{
+    color: #c2c5ca;
+    font-size: 16px;
+    margin-right: 0px;
+    cursor: pointer;
+}
+.comment_box .comment_form{
+    width: 100%;
+    margin-top: 30px;
+    display: block;
+}
+.comment_form .input_form{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.input_form label{
+    display: block;
+    font-size: 14px;
+    color: #5b5f66;
+    margin-bottom: 10px;
+}
+.input_form input{
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+    font-size: 16px;
+}
+.input_form textarea{
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    font-size: 16px;
+    outline: none;
+    padding: 12px 20px;
+    height: 120px;
+}
+.input_form_btn{
+    text-align: right;
+}
+.input_form_btn button{
+    padding: 17px 60px;
+    color: white;
+    background-color: #40b659;
+    border-radius: 6px;
+    border: none;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .4s;
+}
+.input_form_btn button:hover{
+    background-color: white;
+    color: #198754;
+    border: 1px solid #198754;
+}
+.product .product_footer{
+    width: 100%;
+    margin-top: -40px;
+    padding: 20px 25px;
+}
+.product_footer a{
+    background-color: #40b659;
+    width: 100%;
+    border-radius: 6px;
+    color: white;
+    display: inline-block;
+    transition: .4s;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 14px 0;
+}
+.product_footer a i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+.product_footer a:hover{
+    background-color: white;
+    border: 1px solid #40b659;
+    color: #40b659;
+}
+.product_body .product__labels{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.product__labels .komissiya{
+    padding: 5px 10px;
+    background-color: rgba(23,67,223,.07);
+    color: #1743df!important;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.product__labels .stok{
+    padding: 5px 10px;
+    color: rgb(255, 0, 0) !important;
+    border: 1px solid rgb(255, 0, 0);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.product__labels .faiz{
+    padding: 5px 10px;
+    color: #40b659;
+    border: 1px solid #40b659;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.product_body .product_prices{
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+}
+.product_prices .prices_left{
+    width: 50%;
+}
+.prices_left .overline{
+    color: #95979c;
+    text-decoration: line-through;
+    font-size: 14px;
+    font-weight: 600;
+}
+.prices_left .price{
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: 600;
+    color: #232d40;
+}
+.product_prices .prices_right{
+    width: 50%;
+    padding: 15px 10px;
+    background-color: #fafafc;
+}
+.prices_right .taksit_up{
+    display: flex;
+}
+.taksit_up div{
+    width: 31%;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+}
+.taksit_active{
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+}
+.prices_right .taksit_down{
+    text-align: center;
+    padding-top: 15px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.ProductList .load_more{
+    width: 100%;
+    text-align: center;
+    
+}
+.load_more button{
+    padding: 14px 30px;
+    background-color: #f6861f;
+    color: white;
+    transition: .4s;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+}
+.load_more button:hover{
+    background-color: white;
+    color: #f6861f;
+    border: 1px solid #f6861f;
+}
+
+@media screen  and (max-width:600px){
+   
+   .container_inner .container-fluid{
+        width: 96%;
+        margin: 10px auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .container-fluid .campaign_left{
+        width: 100%;
+    }
+    .campaign_left img{
+        width: 100%;
+        height: 200px;
+    }
+    .container-fluid .campaign_right{
+        width: 96%;
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+    .campaign_right .date{
+        font-size: 13px;
+    }
+    .campaign_right .campaigns-inner__desc{
+        font-size: 13px;
+    }
+    .campaign_right .social_info{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .social_info .campaigns-inner__info__text{
+        width: 50%;
+    }
+    .ProductList .product_content{
+        width: 96%;
+        margin: 30px auto;
+    }
+    .product_content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .product_content .product{
+        width: 100%;
+    }
+    .product .product_image{
+        width: 100%;
+        text-align: center;
+    }
+    .product img{
+        width: 250px;
+        
+    }
+    .product_body{
+        width: 100%;
+    }
+    .product_body .product_category{
+        font-size: 12px;
+    }
+    .product_body .product_name a{
+        font-size: 14px;
+    }
+    .product_body .comment_box{
+        top: -500px;
+        left: 0px;
+    }
+    .product_body .product_stars i{
+        font-size: 15px;
+    }
+    .product_body .product__labels{
+        display: flex;
+        height: 40px;
+        align-items: center;
+    }
+    .product_body .product__labels div{
+        width: auto;
+        height: 30px;
+    }
+    .product__labels .faiz{
+        margin-top: -3px;
+    }
+
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+   
+    .container_inner .container-fluid{
+         width: 96%;
+         margin: 10px auto;
+         display: flex;
+         flex-wrap: wrap;
+     }
+     .container-fluid .campaign_left{
+         width: 100%;
+     }
+     .campaign_left img{
+         width: 100%;
+         height: 200px;
+     }
+     .container-fluid .campaign_right{
+         width: 96%;
+         margin-left: 0px;
+         margin-top: 50px;
+     }
+     .campaign_right .date{
+         font-size: 13px;
+     }
+     .campaign_right .campaigns-inner__desc{
+         font-size: 13px;
+     }
+     .campaign_right .social_info{
+         display: flex;
+         flex-wrap: wrap;
+     }
+     .social_info .campaigns-inner__info__text{
+         width: 50%;
+     }
+     .ProductList .product_content{
+         width: 96%;
+         margin: 30px auto;
+     }
+     .product_content {
+         display: flex;
+         flex-wrap: wrap;
+     }
+     .product_content .product{
+         width: 100%;
+     }
+     .product .product_image{
+         width: 100%;
+         text-align: center;
+     }
+     .product img{
+         width: 250px;
+         
+     }
+     .product_body{
+         width: 100%;
+     }
+     .product_body .product_category{
+         font-size: 12px;
+     }
+     .product_body .product_name a{
+         font-size: 14px;
+     }
+     .product_body .comment_box{
+         top: -500px;
+         left: 0px;
+     }
+     .product_body .product_stars i{
+         font-size: 15px;
+     }
+     .product_body .product__labels{
+         display: flex;
+         height: 40px;
+         align-items: center;
+     }
+     .product_body .product__labels div{
+         width: auto;
+         height: 30px;
+     }
+     .product__labels .faiz{
+         margin-top: -3px;
+     }
+ 
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+     
+    .container_inner .container-fluid {
+        width: 100%;
+        display: flex;
+        
+    }
+    .container-fluid .campaign_left{
+    }
+    .container-fluid .campaign_right{
+        width: 70%;
+    }
+    .campaign_left img{
+        width: 100%;
+        height: 250px;
+    }
+    .container-fluid .campaign_right{
+        height: auto;
+    }
+    .campaign_right .campaigns-inner__date span{
+        font-size: 9px;
+    }
+    .campaign_right .date{
+        font-size: 11px;
+        margin-bottom: -10px;
+    }
+    .campaign_right .campaigns-inner__title {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    .campaign_right .campaigns-inner__desc{
+        font-size: 12px;
+    }
+    .campaign_right .social_info{
+        display: flex;
+    }
+    .social_info .campaigns-inner__info__text span{
+        font-size: 11px;
+    }
+    .campaigns-inner__info__text i{
+        font-size: 13px;
+    }
+    .campaigns-inner__info__text a{
+        font-size: 11px;
+    }
+    .ProductList{
+        width: 100%;
+    }
+    .ProductList .product_content{
+        width: 100%;
+        margin: 30px auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .product_content .product{
+        width: 25%;
+    }
+    .product .product_body{
+        width: 100%;
+    }
+    .product_body .product_category{
+        width: 100%;
+        font-size: 11px;
+    }
+    .product_body .product_name a{
+        width: 100%;
+        font-size: 10px;
+    }
+    .product .product_image{
+        text-align: center;
+    }
+    .product img{
+        width: 120px;
+        height: 200px;
+    }
+    .product_body .product_stars i{
+        font-size: 11px;
+    }
+    .product_body .product_stars span{
+        font-size: 11px;
+    }
+    .product_body .product__labels {
+        display: flex;
+    }
+    .product__labels  .product__label{
+        width: auto;
+        height: 30px;
+        display: flex;
+        align-items:center;
+    }
+    .product .product_footer a{
+        font-size: 10px;
+    }
+    .product_body .product_prices .prices_left .overline{
+        font-size: 10px;
+    }
+    .product_body .product_prices .prices_left .price{
+        font-size: 11px;
+    }
+    .product_prices .prices_right .taksit_up div{
+        font-size: 11px;
+    }
+    .prices_right .taksit_down p{
+        font-size: 13px;
+    }
+    .load_more button{
+        font-size:  10px;
+    }
+    .product__labels{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .product_body .product__labels .komissiya{
+        margin-bottom: 10px;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+    .container_inner .container-fluid {
+        width: 100%;
+        display: flex;
+        
+    }
+    .container-fluid .campaign_left{
+    }
+    .container-fluid .campaign_right{
+        width: 70%;
+    }
+    .campaign_left img{
+        width: 100%;
+        height: 250px;
+    }
+    .container-fluid .campaign_right{
+        height: auto;
+    }
+    .campaign_right .campaigns-inner__date span{
+        font-size: 9px;
+    }
+    .campaign_right .date{
+        font-size: 11px;
+        margin-bottom: -10px;
+    }
+    .campaign_right .campaigns-inner__title {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    .campaign_right .campaigns-inner__desc{
+        font-size: 12px;
+    }
+    .campaign_right .social_info{
+        display: flex;
+    }
+    .social_info .campaigns-inner__info__text span{
+        font-size: 11px;
+    }
+    .campaigns-inner__info__text i{
+        font-size: 13px;
+    }
+    .campaigns-inner__info__text a{
+        font-size: 11px;
+    }
+    .ProductList{
+        width: 100%;
+    }
+    .ProductList .product_content{
+        width: 100%;
+        margin: 30px auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .product_content .product{
+        width: 25%;
+    }
+    .product .product_body{
+        width: 100%;
+    }
+    .product_body .product_category{
+        width: 100%;
+        font-size: 11px;
+    }
+    .product_body .product_name a{
+        width: 100%;
+        font-size: 10px;
+    }
+    .product .product_image{
+        text-align: center;
+    }
+    .product img{
+        width: 120px;
+        height: 200px;
+    }
+    .product_body .product_stars i{
+        font-size: 11px;
+    }
+    .product_body .product_stars span{
+        font-size: 11px;
+    }
+    .product_body .product__labels {
+        display: flex;
+    }
+    .product__labels  .product__label{
+        width: auto;
+        height: 30px;
+        display: flex;
+        align-items:center;
+    }
+    .product .product_footer a{
+        font-size: 10px;
+    }
+    .product_body .product_prices .prices_left .overline{
+        font-size: 10px;
+    }
+    .product_body .product_prices .prices_left .price{
+        font-size: 11px;
+    }
+    .product_prices .prices_right .taksit_up div{
+        font-size: 11px;
+    }
+    .prices_right .taksit_down p{
+        font-size: 13px;
+    }
+    .load_more button{
+        font-size:  10px;
+    }
+    .product__labels{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .product_body .product__labels .komissiya{
+        margin-bottom: 10px;
+    }
+
+}
