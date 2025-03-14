@@ -15,9 +15,12 @@ import VakansiyaList from './components/Vakansiya/VakansiyaList'
 import  VakansiyaItem from './components/Vakansiya/VakansiyaItem'
 import Muraciet from './components/Vakansiya/Muraciet';
 import SualCavab from './components/Answer/SualCavab';
+import Home from './components/Home/Home'
 function App() {
   return (
     <Routes>
+      <Route path="/Home" element={<Home></Home>}></Route>
+
       <Route path="/Login" element={<Login></Login>}></Route>
       <Route path='/Register' element={<Register></Register>}></Route>
       <Route path='/verifywithOTP' element={<Otp></Otp>}></Route>

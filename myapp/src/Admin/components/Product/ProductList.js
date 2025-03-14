@@ -32,15 +32,16 @@ export default function ProductList() {
     const navigate=useNavigate();
       const[data,setData]=useState([])
       const[search,setSearchFilter]=useState('')
+       const[isSearch,setIsSearch]=useState('')
+      
       const[loading,setLoading]=useState(true)
-      const[alert,setAlert]=useState('')
+      const[alert,setAlert]=useState(false)
     useEffect(()=>{
       fetchData();
     },[])
     const fetchData=()=>{
         setLoading(true)
         axios.get(`http://localhost:5126/api/product/getall`).then(res=>{
-            console.log(res.data[0].createdTime)
             setData(res.data)
         }).catch(eror=>{
             console.log(eror)
@@ -48,8 +49,35 @@ export default function ProductList() {
         setLoading(false)
     }
     const Search=(e)=>{
-        e.preventDefault();
+      e.preventDefault()
+      var result=data.filter(x=>x.name.toLowerCase().includes(search.toLowerCase()))
 
+      if (search === '' || result.length==0) {
+        setAlert(true)
+        setIsSearch('Bele bir melumat tapilmadi')
+        setTimeout(() => {
+          setAlert(false)
+          setIsSearch('')
+        }, 2000);
+        fetchData()
+
+      }
+      else {
+        console.log(result)
+        if(result.length==0){
+          setAlert(true)
+          setIsSearch('Bele bir melumat tapilmadi')
+          fetchData()
+          setTimeout(() => {
+            setAlert(false)
+            setIsSearch('')
+          }, 2000);
+        }
+        else{
+          setData(result)
+        }
+       
+      }
     }
     const RemoveData=()=>{
 
@@ -97,12 +125,12 @@ export default function ProductList() {
                 <strong >Product Table</strong>
               </CCardHeader>
               {
-                                  alert!=='' && (
-                                      <div style={{width:'100%',textAlign:'center',backgroundColor:'red',padding:'12px 20px'}}> <span style={{fontSize:'20px',color:'white',fontWeight:'bold'}}>{alert}</span></div>
+                                  alert==true && (
+                                      <div style={{width:'100%',textAlign:'center',backgroundColor:'red',padding:'12px 20px'}}> <span style={{fontSize:'20px',color:'white',fontWeight:'bold'}}>{isSearch}</span></div>
                                   )
                               }
               <CCardBody>
-                <NavLink to="/Admin/Brand/Create">
+                <NavLink to="/Admin/Product/Create">
                   <CButton onClick={() => navigate('/admin/product/create')} type='button' style={{ backgroundColor: '#6261cc', color: 'white', border: '0' }} color="primary" className="px-4 mb-4">
                     Create Product
                   </CButton>

@@ -22,12 +22,16 @@ import 'react-quill/dist/quill.snow.css'; // Import Quill styles
 export default function ProductCreate() {
   const token = useSelector(state => state.token);
   const [createDto, setCreateDto] = useState({
-    isOnline:false
+    isOnline: false,
+    CategoryId: null,
+    BrandId: null,
+    Price: null,
+    Count: null,
   })
   const [alert, setAlert] = useState({})
   const [selectedImages, setSelectedImages] = useState([]);
   const [brands, setBrands] = useState([])
-  const[kampaniyas,setKampaniyas]=useState([])
+  const [kampaniyas, setKampaniyas] = useState([])
   const [categories, setCategories] = useState([])
   const navigate = useNavigate();
   const [goldZemanet, setgoldZemanet] = useState(false)
@@ -45,37 +49,152 @@ export default function ProductCreate() {
       Description: html,
     }));
   };
+
+
   const handleImageSelect = (event) => {
     const files = event.target.files;
-    const newImages = [];
-
-    // Seçilən şəkilləri oxumaq və URL-lərini almaq
-    for (let i = 0; i < files.length; i++) {
-      newImages.push(URL.createObjectURL(files[i]));
+    if (!files || files.length === 0) {
+      console.error("Fayllar seçilməyib!");
+      return;
     }
+    const fileNames = Array.from(event.target.files).map((file) => file.name);
 
-    // Yeni şəkilləri state-ə əlavə edirik
-    setSelectedImages((prevImages) => [...prevImages, ...newImages]);
+    const fileArray = Array.from(files);
+  
+    // `File` obyektlərini `createDto.Files`-ə əlavə edirik
+    setCreateDto((prevDto) => ({
+      ...prevDto,
+      Files: fileArray, // Yalnız fayl adlarını array kimi saxlayırıq
+    }));
+  
+    // Önizləmə üçün URL-lər yaratmaq
+    const imagePreviews = fileArray.map((file) => URL.createObjectURL(file));
+    setSelectedImages((prev) => [...prev, ...imagePreviews]);
+  
+    console.log("Seçilmiş fayllar:", fileArray);
   };
+  
   const handleImageDelete = (imageToDelete) => {
     setSelectedImages((prevImages) =>
       prevImages.filter((image) => image !== imageToDelete)
     );
-
+  
+    // Seçilmiş şəkli `createDto.Files`-dən də silmək lazımdır
+    setCreateDto((prev) => ({
+      ...prev,
+      Files: prev.Files.filter((file, index) => 
+        URL.createObjectURL(file) !== imageToDelete
+      ),
+    }));
   };
-  const updateCreateDto=()=>{
-   setCreateDto(prevDto=>({
-    ...prevDto,
-      Files:selectedImages
-   }))
-  }
-  useEffect(()=>{
-    updateCreateDto()
-  },[selectedImages])
+  
+ 
+  useEffect(() => {
+    // setCreateDto((prevDto) => ({
+    //   ...prevDto,
+    //   Files: selectedImages
+    // }));
+  }, [selectedImages])
+
+
+  // const onCreate = (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+
+  //   for (let key in createDto) {
+  //     if (key === "Files") {
+  //       if (Array.isArray(createDto.Files) && createDto.Files.length > 0) {
+  //         createDto.Files.forEach((file) => {
+  //           if (file instanceof File) { // Yalnız File obyektlərini əlavə edirik
+  //             formData.append("Files", file);
+  //           } else {
+  //             console.error("Düzgün formatda fayl deyil!", file);
+  //           }
+  //         });
+  //       } else {
+  //         console.error("Files array deyil və ya boşdur!");
+  //       }
+  //     } else {
+  //       formData.append(key, createDto[key]);
+  //     }
+  //   }
+
+  //   axios.post(`http://localhost:5126/api/product/Create`, formData).then(res => {
+  //     console.log(res)
+  //   }).catch(eror => {
+  //     console.log(eror)
+  //     if (typeof eror.response.data == "object") {
+  //       setAlert({
+  //         Name: eror.response.data.errors.Name,
+  //         Files: eror.response.data.errors.Files,
+  //         ZemanetDate: eror.response.data.errors.ZemanetDate,
+  //         BrandId: eror.response.data.errors.BrandId,
+  //         CategoryId: eror.response.data.errors.CategoryId,
+  //         Count: eror.response.data.errors.Count,
+  //         Price: eror.response.data.errors.Price,
+  //       })
+  //     }
+  //     else if (typeof eror.response.data == "string") {
+  //       setAlert({ data: eror.response.data })
+  //     }
+  //   })
+
+  // }
+
   const onCreate = (e) => {
     e.preventDefault();
     console.log(createDto)
-  }
+
+    const formData = new FormData();
+  
+    for (let key in createDto) {
+      if (key === "Files") {
+        if (Array.isArray(createDto.Files) && createDto.Files.length > 0) {
+          createDto.Files.forEach((file) => {
+            formData.append("Files", file);
+            console.log(file)
+          });
+        } else {
+          console.error("Files array deyil və ya boşdur!");
+        }
+      } else {
+        formData.append(key, createDto[key]);
+      }
+    }
+  
+    axios.post(`http://localhost:5126/api/product/Create`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(res => {
+      console.log(res);
+      navigate("/admin/product")
+    })
+    .catch(eror => {
+      console.log(eror);
+      if (typeof eror.response.data == "object") {
+        setAlert({
+            Files: eror.response.data.errors.Files,
+            Name: eror.response.data.errors.Name,
+            Price:eror.response.data.errors.Price,
+            Count:eror.response.data.errors.Count,
+            BrandId:eror.response.data.errors.BrandId,
+            CategoryId:eror.response.data.errors.CategoryId,
+            ZemanetDate:eror.response.data.errors.ZemanetDate,
+
+        })
+    }
+    else if(typeof eror.response.data == "string"){
+        setAlert({data:eror.response.data})
+    }
+    setTimeout(() => {
+      setAlert({})
+    }, 2000);
+    });
+  };
+  
 
   const getBrands = () => {
     axios.get(`http://localhost:5126/api/brand/getall`, {
@@ -97,10 +216,10 @@ export default function ProductCreate() {
       console.log(eror)
     })
   }
-  const getKampaniya=()=>{
-    axios.get(`http://localhost:5126/api/kampaniya/getall`).then(res=>{
+  const getKampaniya = () => {
+    axios.get(`http://localhost:5126/api/kampaniya/getall`).then(res => {
       filterCampaigns(res.data)
-    }).catch(eror=>{
+    }).catch(eror => {
       console.log(eror)
     })
   }
@@ -111,7 +230,7 @@ export default function ProductCreate() {
       return endTime > now; // EndTime gələcəkdədirsə, aktiv kampaniya olacaq
     });
     setKampaniyas(activeCampaigns)
-    console.log(activeCampaigns)
+
   };
   return (
     <div>
@@ -158,13 +277,13 @@ export default function ProductCreate() {
                     }
                   </div>
                   <CFormInput onChange={(e) => setCreateDto({ ...createDto, Price: e.target.value })}
-                    value={createDto.Title}
+                    value={createDto.Price}
                     type="number"
                     placeholder="Product Price"
                   />
                 </div>
                 <div style={{ marginTop: '40px' }}>
-                  <CFormLabel  htmlFor="exampleFormControlInput1" style={{ marginBottom: '15px' }}>Percent</CFormLabel>
+                  <CFormLabel htmlFor="exampleFormControlInput1" style={{ marginBottom: '15px' }}>PricePercent</CFormLabel>
                   <div>
                     {
                       alert.PricePercent !== undefined && (
@@ -204,7 +323,7 @@ export default function ProductCreate() {
                   </div>
                   <CFormInput onChange={(e) => setCreateDto({ ...createDto, Count: e.target.value })}
                     value={createDto.Count}
-                    type="number"
+                    type="double"
                     placeholder="Product Count"
                   />
                 </div>
@@ -223,12 +342,16 @@ export default function ProductCreate() {
                   }} style={{ marginLeft: '0px', fontSize: '22px' }} id="flexCheckChecked" label="Qizil zemanet olsun ?" defaultChecked={goldZemanet} />
                   {
                     goldZemanet == true && (
-                      <div style={{ marginTop: '20px' }}>
-                        <CFormInput onChange={(e) => setCreateDto({ ...createDto, GoldPrice: e.target.value })}
-                          value={createDto.GoldPrice}
-                          type="number"
-                          placeholder="Qizil zemanetin qiymeti"
-                        />
+
+                      <div>
+
+                        <div style={{ marginTop: '20px' }}>
+                          <CFormInput onChange={(e) => setCreateDto({ ...createDto, GoldPrice: e.target.value })}
+                            value={createDto.GoldPrice}
+                            type="number"
+                            placeholder="Qizil zemanetin qiymeti"
+                          />
+                        </div>
                       </div>
                     )
                   }
@@ -263,7 +386,7 @@ export default function ProductCreate() {
                   <CFormLabel htmlFor="exampleFormControlInput1" style={{ marginBottom: '15px' }}>Select Category</CFormLabel>
 
                   <CFormSelect onChange={(e) => setCreateDto({ ...createDto, CategoryId: e.target.value })} aria-label="Default select example">
-                    <option>Select Category</option>
+                    <option >Select Category</option>
 
                     {
                       categories.map((item, index) => {
@@ -278,10 +401,10 @@ export default function ProductCreate() {
               </div>
               <div className="mb-3" style={{ marginLeft: '40px' }}>
                 <label for="fileField" class="attachment" style={{ padding: '20px 0' }}>
-                  <span style={{ display: 'block', marginBottom: '30px',fontSize:'24px' }}>Image</span>
+                  <span style={{ display: 'block', marginBottom: '30px', fontSize: '24px' }}>Image</span>
                   {
-                    alert.Image !== undefined && (
-                      <span style={{ color: 'red', fontSize: '14px', marginBottom: '10px', display: 'block' }}>{alert.Image}</span>
+                    alert.Files !== undefined && (
+                      <span style={{ color: 'red', fontSize: '14px', marginBottom: '10px', display: 'block' }}>{alert.Files}</span>
                     )
                   }
                   <label htmlFor="file-upload" style={labelStyle}>
@@ -290,9 +413,10 @@ export default function ProductCreate() {
                   <input
                     id="file-upload"
                     type="file"
+                    key={selectedImages.length}
                     multiple
                     onChange={handleImageSelect}
-                    style={{ display: 'none' }} // Bu stili inputu gizlətmək üçün əlavə edirik
+                    style={{ display: 'none' }}
                   />
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '20px' }}>
@@ -329,37 +453,31 @@ export default function ProductCreate() {
                   </div>
 
                 </label>
-                <div style={{marginTop:'40px',width:'100%'}}>
-                    <label htmlFor="">Məhsul yalniz online?</label>
-                    <CFormSelect style={{width:'100%'}} onChange={(e)=>setCreateDto({...createDto,isOnline:e.target.value})}>
-                      <option value={true}>Bəli</option>
-                      <option value={false}>Xeyr</option>
+                <div style={{ marginTop: '40px', width: '100%' }}>
+                  <label htmlFor="">Məhsul yalniz online?</label>
+                  <CFormSelect style={{ width: '100%' }} onChange={(e) => setCreateDto({ ...createDto, isOnline: e.target.value })}>
+                    <option value={false}>Xeyr</option>
+                    <option value={true}>Bəli</option>
 
-                    </CFormSelect>
+                  </CFormSelect>
                 </div>
-                <div style={{marginTop:'40px',width:'100%'}}>
-                    <label htmlFor="">Kampaniyani seç...</label>
-                    <CFormSelect style={{width:'100%'}} onChange={(e)=>setCreateDto({...createDto,isOnline:e.target.value})}>
-                      <option value="">Default</option>
-                      {kampaniyas.map((item,index)=>{
-                        return (
-                          <option value={item.id}>{item.title}</option>
-                        )
-                      })}
+                <div style={{ marginTop: '40px', width: '100%' }}>
+                  <label htmlFor="">Kampaniyani seç...</label>
+                  <CFormSelect style={{ width: '100%' }} onChange={(e) => setCreateDto({ ...createDto, KampaniyaId: e.target.value })}>
+                    <option value="">Default</option>
+                    {kampaniyas.map((item, index) => {
+                      return (
+                        <option value={item.id}>{item.title}</option>
+                      )
+                    })}
 
-                    </CFormSelect>
+                  </CFormSelect>
                 </div>
               </div>
             </div>
             <div style={{ marginBottom: '40px' }}>
               <p style={{ marginBottom: '20px' }}>Product Description</p>
-              <div>
-                {
-                  alert.Description !== undefined && (
-                    <span style={{ color: 'red', fontSize: '14px', marginBottom: '10px', display: 'block' }}>{alert.Description}</span>
-                  )
-                }
-              </div>
+
               <ReactQuill style={{ height: '300px' }}
                 modules={ProductCreate.modules}
                 formats={ProductCreate.formats}
