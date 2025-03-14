@@ -5,10 +5,12 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import ProductListOwl from './ProductListOwl';
 import BrandList from './BrandList';
 import Footer from '../Footer';
+import Navbar from './Navbar';
 import VideoBlogs from './VideoBlogs.';
 export default function Home() {
     return (
         <div>
+            <Navbar></Navbar>
             <div class="container_fluid">
                 <div class="fluid_content">
                     <div class="services_item">
