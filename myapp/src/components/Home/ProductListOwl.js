@@ -10,6 +10,7 @@ export default function ProductListOwl() {
     const [successMessage, setSuccessMessage] = useState("");
     const [NotSuccess, setNotSuccess] = useState('')
     const [statusCode, setstatusCode] = useState(1)
+    const INACTIVITY_LIMIT = 20 * 60 * 1000;
     useEffect(() => {
         fetchData(statusCode)
     }, [statusCode])
@@ -37,6 +38,47 @@ export default function ProductListOwl() {
             setNotSuccess("");
         }, 3000);
     };
+
+    useEffect(() => {
+        // Son aktivlik vaxtını yenilə
+        const updateLastActivity = () => {
+            localStorage.setItem("lastActivity", Date.now());
+        };
+
+        // Səbəti backenddə silən funksiya
+        const deleteCart = () => {
+            axios.delete("http://localhost:5126/api/cart/DeleteCart")
+                .then(response => {
+                    console.log("Səbət backenddə silindi:", response.data);
+                })
+                .catch(error => {
+                    console.log("Səbəti silmək alınmadı:", error);
+                });
+        };
+
+        const checkInactivity = () => {
+            const lastActivity = localStorage.getItem("lastActivity");
+            if (lastActivity && Date.now() - lastActivity > INACTIVITY_LIMIT) {
+                deleteCart();
+            }
+        };
+
+        window.addEventListener("mousemove", updateLastActivity);
+        window.addEventListener("keydown", updateLastActivity);
+        window.addEventListener("click", updateLastActivity);
+
+        updateLastActivity();
+
+        const interval = setInterval(checkInactivity, 60 * 1000);
+
+        return () => {
+            window.removeEventListener("mousemove", updateLastActivity);
+            window.removeEventListener("keydown", updateLastActivity);
+            window.removeEventListener("click", updateLastActivity);
+            clearInterval(interval);
+        };
+    }, []);
+
     return (
         <section class="ProductList">
             {successMessage && (

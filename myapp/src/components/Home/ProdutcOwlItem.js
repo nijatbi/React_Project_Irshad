@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { FaStar } from "react-icons/fa";
 import axios from 'axios';
 import { Message } from 'rsuite';
-export default function ProductOwlItem({ item, onCommentSubmit,onNotificationSubmit }) {
+import { useDispatch, useSelector } from 'react-redux';
+import { setIp } from '../../store/action';
+import { useSearch } from 'rsuite/esm/internals/Picker';
+import { CreateBasket } from '../../store/store'
+import { CButton, CSpinner } from "@coreui/react";
+export default function ProductOwlItem({ item, onCommentSubmit, onNotificationSubmit }) {
   const [active, setActive] = useState(false);
   const [productCommentDto, setproductCommentDto] = useState({
     Rating: 0,
@@ -12,14 +17,24 @@ export default function ProductOwlItem({ item, onCommentSubmit,onNotificationSub
   })
   const [alert, setAlert] = useState({})
   const [rating, setRating] = useState(0);
-  const[notActive,setNotActive]=useState(false)
+  const [notActive, setNotActive] = useState(false)
   const [success, setSucces] = useState(false)
-  const[notEror,setnotERor]=useState({})
-  const[sendNotificationDto,setsendNotificationDto]=useState({
-    ProductId:item.id
+  const [notEror, setnotERor] = useState({})
+  const [loading, setLoading] = useState(false);
+
+  const [sendNotificationDto, setsendNotificationDto] = useState({
+    ProductId: item.id
   })
+  const dispatch = useDispatch();
   const totalStars = 5;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const [basketDto, setBasketDto] = useState({
+    ProductId: item.id
+  })
+  const [inBasket, setInBasket] = useState(false)
+  useEffect(() => {
+    fetchIpAddress()
+  }, [])
   const AddComment = (e) => {
     e.preventDefault();
     axios.post(`http://localhost:5126/api/Product/AddComment`, productCommentDto, {
@@ -60,12 +75,12 @@ export default function ProductOwlItem({ item, onCommentSubmit,onNotificationSub
     })
   }
 
-  const AddNotification=(e)=>{
+  const AddNotification = (e) => {
     e.preventDefault();
     console.log(sendNotificationDto)
-    if(!emailRegex.test(sendNotificationDto.Email)){
+    if (!emailRegex.test(sendNotificationDto.Email)) {
       setnotERor({
-        Email:'Email etibarli deyil...'
+        Email: 'Email etibarli deyil...'
       })
       setTimeout(() => {
         setnotERor({
@@ -74,45 +89,60 @@ export default function ProductOwlItem({ item, onCommentSubmit,onNotificationSub
           data: ''
         })
       }, 2000);
-      return ;
+      return;
     }
-    else if(sendNotificationDto.Email=="" || sendNotificationDto.Email==undefined || sendNotificationDto.NameAndSurname=="" || sendNotificationDto.NameAndSurname==undefined ){
+    else if (sendNotificationDto.Email == "" || sendNotificationDto.Email == undefined || sendNotificationDto.NameAndSurname == "" || sendNotificationDto.NameAndSurname == undefined) {
       setnotERor({
-        NameAndSurname:'Zehmet olmasa doldurun'
+        NameAndSurname: 'Zehmet olmasa doldurun'
       })
       setTimeout(() => {
         setnotERor({
-          NameAndSurname:''
+          NameAndSurname: ''
         })
       }, 2000);
     }
-   
-    else{
-      axios.post(`http://localhost:5126/api/Product/SendNotification`,sendNotificationDto,{
-        headers:{
-          "Content-Type":'multipart/form-data'
+
+    else {
+      axios.post(`http://localhost:5126/api/Product/SendNotification`, sendNotificationDto, {
+        headers: {
+          "Content-Type": 'multipart/form-data'
         }
-      }).then(res=>{
+      }).then(res => {
         console.log(res)
         setTimeout(() => {
           onNotificationSubmit("✅ Müraciətiniz uğurla göndərildi, Sizə məlumat veriləcək ");
           setNotActive(false)
         }, 1000);
         setsendNotificationDto({
-          NameAndSurname:'',
-          Email:''
+          NameAndSurname: '',
+          Email: ''
         })
-      }).catch(eror=>{
+      }).catch(eror => {
         console.log(eror)
-        
+
       })
 
 
     }
-     
+
 
   }
 
+  const fetchIpAddress = () => {
+    axios.get("https://api64.ipify.org?format=json").then(res => {
+      dispatch(setIp(res.data.ip))
+      setBasketDto({ ...basketDto, IpAddress: res.data.ip })
+      localStorage.setItem('IpAddress',res.data.ip)
+    })
+      .catch(eror => {
+        console.log(eror)
+      })
+  };
+
+  
+  const GetProductById = () => {
+
+  }
   return (
     <div>
 
@@ -235,65 +265,65 @@ export default function ProductOwlItem({ item, onCommentSubmit,onNotificationSub
               {
                 item.count == 0 && (
 
-                  <div class="product__label faiz" onClick={(e)=>setNotActive(true)}>Mehsul barede bildir</div>
+                  <div class="product__label faiz" onClick={(e) => setNotActive(true)}>Mehsul barede bildir</div>
 
                 )
               }
               {
                 notActive && (
                   <div className='product_comment'>
-                  <div class="comment_box">
-                    <div class="comment_up">
-                      <span style={{zIndex:'999999'}}>Məhsul barədə xəbərdar et</span>
-                      <button type="button" onClick={() => setNotActive(false)}>X</button>
-                    </div>
-                    <div style={{ margin: '15px 0' }}>
-                       
-                    </div>
-                    <div class="comment_body">
-                      <form onSubmit={AddNotification}>
-                        {
-                          notEror.data != undefined && (
-                            <p style={{ color: 'red', fontSize: '13px', margin: '15px 0' }}>{notEror.data}</p>
-                          )
-                        }
-  
-                        <div class="comment_form">
-  
+                    <div class="comment_box">
+                      <div class="comment_up">
+                        <span style={{ zIndex: '999999' }}>Məhsul barədə xəbərdar et</span>
+                        <button type="button" onClick={() => setNotActive(false)}>X</button>
+                      </div>
+                      <div style={{ margin: '15px 0' }}>
+
+                      </div>
+                      <div class="comment_body">
+                        <form onSubmit={AddNotification}>
                           {
-                            notEror.NameAndSurname != undefined && (
-                              <p style={{ color: 'red', fontSize: '13px', margin: '15px 0' }}>{notEror.NameAndSurname}</p>
+                            notEror.data != undefined && (
+                              <p style={{ color: 'red', fontSize: '13px', margin: '15px 0' }}>{notEror.data}</p>
                             )
                           }
-                          <div class="input_form">
-                            <label for="">Ad soyad</label>
-                            <input
-                              type="text"
-                              placeholder="Ad soyad"
-                              onChange={(e) => setsendNotificationDto({ ...sendNotificationDto, NameAndSurname: e.target.value })}
-                            />
+
+                          <div class="comment_form">
+
+                            {
+                              notEror.NameAndSurname != undefined && (
+                                <p style={{ color: 'red', fontSize: '13px', margin: '15px 0' }}>{notEror.NameAndSurname}</p>
+                              )
+                            }
+                            <div class="input_form">
+                              <label for="">Ad soyad</label>
+                              <input
+                                type="text"
+                                placeholder="Ad soyad"
+                                onChange={(e) => setsendNotificationDto({ ...sendNotificationDto, NameAndSurname: e.target.value })}
+                              />
+                            </div>
+                            {
+                              notEror.Email != undefined && (
+                                <p style={{ color: 'red', fontSize: '13px', margin: '15px 0' }}>{notEror.Email}</p>
+                              )
+                            }
+                            <div class="input_form">
+                              <label for="">E-mail ünvanı</label>
+                              <input
+                                name="" id=""
+                                placeholder="E-mail ünvanı"
+                                onChange={(e) => setsendNotificationDto({ ...sendNotificationDto, Email: e.target.value })}
+                              ></input>
+                            </div>
+                            <div class="input_form_btn">
+                              <button type="submit">Göndər</button>
+                            </div>
                           </div>
-                          {
-                            notEror.Email != undefined && (
-                              <p style={{ color: 'red', fontSize: '13px', margin: '15px 0' }}>{notEror.Email}</p>
-                            )
-                          }
-                          <div class="input_form">
-                            <label for="">E-mail ünvanı</label>
-                            <input
-                              name="" id=""
-                              placeholder="E-mail ünvanı"
-                              onChange={(e) => setsendNotificationDto({ ...sendNotificationDto, Email: e.target.value })}
-                            ></input>
-                          </div>
-                          <div class="input_form_btn">
-                            <button type="submit">Göndər</button>
-                          </div>
-                        </div>
-                      </form>
+                        </form>
+                      </div>
                     </div>
                   </div>
-                </div>
                 )
               }
             </div>
@@ -315,10 +345,32 @@ export default function ProductOwlItem({ item, onCommentSubmit,onNotificationSub
             </div>
           </div>
           <div class="product_footer">
-            <a href=""><i class="fa-solid fa-basket-shopping"></i>Səbətə əlavə et</a>
+            {
+              inBasket == true ? (
+                <a style={{ backgroundColor: '#f6861f' }}><i class="fa-solid fa-basket-shopping" ></i>Səbətə keç</a>
+              ) : (
+                <a onClick={() => {
+                  setLoading(true);
+                  setTimeout(() => {
+                    setLoading(false);
+                    setInBasket(true)
+                  }, 2000);
+                  dispatch(CreateBasket(basketDto))
+                }}>{
+                    loading ? (
+                      <CSpinner size="sm" />
+                    ) : (
+
+                      <i class="fa-solid fa-basket-shopping" ></i>
+                    )
+                  }Səbətə əlavə et</a>
+              )
+            }
+
+
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }

@@ -16,6 +16,7 @@ import  VakansiyaItem from './components/Vakansiya/VakansiyaItem'
 import Muraciet from './components/Vakansiya/Muraciet';
 import SualCavab from './components/Answer/SualCavab';
 import Home from './components/Home/Home'
+import Basket from './components/Basket/Basket';
 function App() {
   return (
     <Routes>
@@ -37,6 +38,7 @@ function App() {
     <Route path='/vakansiyalar/:id' element={<VakansiyaItem></VakansiyaItem>}></Route>
     <Route path='/vakansiyalar/muraciet-et/:id' element={<Muraciet></Muraciet>}></Route>
     <Route path='/sual-cavab' element={<SualCavab></SualCavab>}></Route>
+    <Route path='/sebet' element={<Basket></Basket>}></Route>
 
 
     </Routes>
